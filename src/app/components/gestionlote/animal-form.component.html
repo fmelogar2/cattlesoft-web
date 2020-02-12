@@ -1,0 +1,258 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Animal FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #animalForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idAnimal">{{metadata.idAnimal.label}}</label>
+	
+	                                    <input type="number" id="idAnimal" class="form-control"
+required	                                           name="idAnimal" [(ngModel)]="animal.idAnimal" >
+	                                    <div *ngIf="formErrors.idAnimal" class="alert alert-danger">
+	                                           {{ formErrors.idAnimal }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+                                 			<input type="number" id="idHacienda" class="form-control"
+required		                                       name="idHacienda" [(ngModel)]="animal.idHacienda" >
+		                                    <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                           {{ formErrors.idHacienda }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numVaca">{{metadata.numVaca.label}}</label>
+                                 			<input type="string" id="numVaca" class="form-control"
+		                                       name="numVaca" [(ngModel)]="animal.numVaca" >
+		                                    <div *ngIf="formErrors.numVaca" class="alert alert-danger">
+		                                           {{ formErrors.numVaca }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numRegistro">{{metadata.numRegistro.label}}</label>
+                                 			<input type="string" id="numRegistro" class="form-control"
+required		                                       name="numRegistro" [(ngModel)]="animal.numRegistro" >
+		                                    <div *ngIf="formErrors.numRegistro" class="alert alert-danger">
+		                                           {{ formErrors.numRegistro }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="marcaOreja">{{metadata.marcaOreja.label}}</label>
+                                 			<input type="string" id="marcaOreja" class="form-control"
+		                                       name="marcaOreja" [(ngModel)]="animal.marcaOreja" >
+		                                    <div *ngIf="formErrors.marcaOreja" class="alert alert-danger">
+		                                           {{ formErrors.marcaOreja }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="marcaHierro">{{metadata.marcaHierro.label}}</label>
+                                 			<input type="string" id="marcaHierro" class="form-control"
+		                                       name="marcaHierro" [(ngModel)]="animal.marcaHierro" >
+		                                    <div *ngIf="formErrors.marcaHierro" class="alert alert-danger">
+		                                           {{ formErrors.marcaHierro }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombre">{{metadata.nombre.label}}</label>
+                                 			<input type="string" id="nombre" class="form-control"
+required		                                       name="nombre" [(ngModel)]="animal.nombre" >
+		                                    <div *ngIf="formErrors.nombre" class="alert alert-danger">
+		                                           {{ formErrors.nombre }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaNacimiento">{{metadata.fechaNacimiento.label}}</label>
+                                 			<input type="string" id="fechaNacimiento" class="form-control"
+required		                                       name="fechaNacimiento" [(ngModel)]="animal.fechaNacimiento" >
+		                                    <div *ngIf="formErrors.fechaNacimiento" class="alert alert-danger">
+		                                           {{ formErrors.fechaNacimiento }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="sexo">{{metadata.sexo.label}}</label>
+                                 			<input type="string" id="sexo" class="form-control"
+required		                                       name="sexo" [(ngModel)]="animal.sexo" >
+		                                    <div *ngIf="formErrors.sexo" class="alert alert-danger">
+		                                           {{ formErrors.sexo }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="foto">{{metadata.foto.label}}</label>
+                                 			<input type="text" id="foto" class="form-control"
+		                                       name="foto" [(ngModel)]="animal.foto" >
+		                                    <div *ngIf="formErrors.foto" class="alert alert-danger">
+		                                           {{ formErrors.foto }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estadoProduccion">{{metadata.estadoProduccion.label}}</label>
+                                 			<input type="string" id="estadoProduccion" class="form-control"
+		                                       name="estadoProduccion" [(ngModel)]="animal.estadoProduccion" >
+		                                    <div *ngIf="formErrors.estadoProduccion" class="alert alert-danger">
+		                                           {{ formErrors.estadoProduccion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaDescarte">{{metadata.fechaDescarte.label}}</label>
+                                 			<input type="string" id="fechaDescarte" class="form-control"
+		                                       name="fechaDescarte" [(ngModel)]="animal.fechaDescarte" >
+		                                    <div *ngIf="formErrors.fechaDescarte" class="alert alert-danger">
+		                                           {{ formErrors.fechaDescarte }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="motivoDescarte">{{metadata.motivoDescarte.label}}</label>
+                                 			<input type="string" id="motivoDescarte" class="form-control"
+		                                       name="motivoDescarte" [(ngModel)]="animal.motivoDescarte" >
+		                                    <div *ngIf="formErrors.motivoDescarte" class="alert alert-danger">
+		                                           {{ formErrors.motivoDescarte }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="observaciones">{{metadata.observaciones.label}}</label>
+                                 			<input type="string" id="observaciones" class="form-control"
+		                                       name="observaciones" [(ngModel)]="animal.observaciones" >
+		                                    <div *ngIf="formErrors.observaciones" class="alert alert-danger">
+		                                           {{ formErrors.observaciones }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaIngreso">{{metadata.fechaIngreso.label}}</label>
+                                 			<input type="string" id="fechaIngreso" class="form-control"
+required		                                       name="fechaIngreso" [(ngModel)]="animal.fechaIngreso" >
+		                                    <div *ngIf="formErrors.fechaIngreso" class="alert alert-danger">
+		                                           {{ formErrors.fechaIngreso }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fincaOrigen">{{metadata.fincaOrigen.label}}</label>
+                                 			<input type="string" id="fincaOrigen" class="form-control"
+		                                       name="fincaOrigen" [(ngModel)]="animal.fincaOrigen" >
+		                                    <div *ngIf="formErrors.fincaOrigen" class="alert alert-danger">
+		                                           {{ formErrors.fincaOrigen }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idAnimalPadre">{{metadata.idAnimalPadre.label}}</label>
+                                 			<input type="number" id="idAnimalPadre" class="form-control"
+		                                       name="idAnimalPadre" [(ngModel)]="animal.idAnimalPadre" >
+		                                    <div *ngIf="formErrors.idAnimalPadre" class="alert alert-danger">
+		                                           {{ formErrors.idAnimalPadre }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="codMadre">{{metadata.codMadre.label}}</label>
+                                 			<input type="string" id="codMadre" class="form-control"
+		                                       name="codMadre" [(ngModel)]="animal.codMadre" >
+		                                    <div *ngIf="formErrors.codMadre" class="alert alert-danger">
+		                                           {{ formErrors.codMadre }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nomMadre">{{metadata.nomMadre.label}}</label>
+                                 			<input type="string" id="nomMadre" class="form-control"
+		                                       name="nomMadre" [(ngModel)]="animal.nomMadre" >
+		                                    <div *ngIf="formErrors.nomMadre" class="alert alert-danger">
+		                                           {{ formErrors.nomMadre }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="codPadre">{{metadata.codPadre.label}}</label>
+                                 			<input type="string" id="codPadre" class="form-control"
+		                                       name="codPadre" [(ngModel)]="animal.codPadre" >
+		                                    <div *ngIf="formErrors.codPadre" class="alert alert-danger">
+		                                           {{ formErrors.codPadre }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nomPadre">{{metadata.nomPadre.label}}</label>
+                                 			<input type="string" id="nomPadre" class="form-control"
+		                                       name="nomPadre" [(ngModel)]="animal.nomPadre" >
+		                                    <div *ngIf="formErrors.nomPadre" class="alert alert-danger">
+		                                           {{ formErrors.nomPadre }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="procedencia">{{metadata.procedencia.label}}</label>
+                                 			<input type="string" id="procedencia" class="form-control"
+required		                                       name="procedencia" [(ngModel)]="animal.procedencia" >
+		                                    <div *ngIf="formErrors.procedencia" class="alert alert-danger">
+		                                           {{ formErrors.procedencia }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="lactancia">{{metadata.lactancia.label}}</label>
+                                 			<input type="number" id="lactancia" class="form-control"
+		                                       name="lactancia" [(ngModel)]="animal.lactancia" >
+		                                    <div *ngIf="formErrors.lactancia" class="alert alert-danger">
+		                                           {{ formErrors.lactancia }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="origenPadre">{{metadata.origenPadre.label}}</label>
+                                 			<input type="string" id="origenPadre" class="form-control"
+		                                       name="origenPadre" [(ngModel)]="animal.origenPadre" >
+		                                    <div *ngIf="formErrors.origenPadre" class="alert alert-danger">
+		                                           {{ formErrors.origenPadre }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estadoAnimal">{{metadata.estadoAnimal.label}}</label>
+                                 			<input type="string" id="estadoAnimal" class="form-control"
+required		                                       name="estadoAnimal" [(ngModel)]="animal.estadoAnimal" >
+		                                    <div *ngIf="formErrors.estadoAnimal" class="alert alert-danger">
+		                                           {{ formErrors.estadoAnimal }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estadoReproductivo">{{metadata.estadoReproductivo.label}}</label>
+                                 			<input type="string" id="estadoReproductivo" class="form-control"
+		                                       name="estadoReproductivo" [(ngModel)]="animal.estadoReproductivo" >
+		                                    <div *ngIf="formErrors.estadoReproductivo" class="alert alert-danger">
+		                                           {{ formErrors.estadoReproductivo }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idLote">{{metadata.idLote.label}}</label>
+                                 			<input type="number" id="idLote" class="form-control"
+		                                       name="idLote" [(ngModel)]="animal.idLote" >
+		                                    <div *ngIf="formErrors.idLote" class="alert alert-danger">
+		                                           {{ formErrors.idLote }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idAnimalMadre">{{metadata.idAnimalMadre.label}}</label>
+                                 			<input type="number" id="idAnimalMadre" class="form-control"
+		                                       name="idAnimalMadre" [(ngModel)]="animal.idAnimalMadre" >
+		                                    <div *ngIf="formErrors.idAnimalMadre" class="alert alert-danger">
+		                                           {{ formErrors.idAnimalMadre }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

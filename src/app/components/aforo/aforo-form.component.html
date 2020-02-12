@@ -1,0 +1,103 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Aforo FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #aforoForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idAforo">{{metadata.idAforo.label}}</label>
+			
+		                                        <input type="number" id="idAforo" class="form-control"
+required		                                               name="idAforo" [(ngModel)]="aforo.aforoPK.idAforo" >
+			
+		                                        <div *ngIf="formErrors.idAforo" class="alert alert-danger">
+		                                               {{ formErrors.idAforo }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idPotrero">{{metadata.idPotrero.label}}</label>
+			
+		                                        <input type="number" id="idPotrero" class="form-control"
+required		                                               name="idPotrero" [(ngModel)]="aforo.aforoPK.idPotrero" >
+			
+		                                        <div *ngIf="formErrors.idPotrero" class="alert alert-danger">
+		                                               {{ formErrors.idPotrero }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+			
+		                                        <input type="number" id="idHacienda" class="form-control"
+required		                                               name="idHacienda" [(ngModel)]="aforo.aforoPK.idHacienda" >
+			
+		                                        <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                               {{ formErrors.idHacienda }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="momentoAforo">{{metadata.momentoAforo.label}}</label>
+                                 			<input type="string" id="momentoAforo" class="form-control"
+required		                                       name="momentoAforo" [(ngModel)]="aforo.momentoAforo" >
+		                                    <div *ngIf="formErrors.momentoAforo" class="alert alert-danger">
+		                                           {{ formErrors.momentoAforo }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaAforo">{{metadata.fechaAforo.label}}</label>
+                                 			<input type="text" id="fechaAforo" class="form-control"
+required		                                       name="fechaAforo" [(ngModel)]="aforo.fechaAforo" >
+		                                    <div *ngIf="formErrors.fechaAforo" class="alert alert-danger">
+		                                           {{ formErrors.fechaAforo }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="valorTotal">{{metadata.valorTotal.label}}</label>
+                                 			<input type="number" id="valorTotal" class="form-control"
+		                                       name="valorTotal" [(ngModel)]="aforo.valorTotal" >
+		                                    <div *ngIf="formErrors.valorTotal" class="alert alert-danger">
+		                                           {{ formErrors.valorTotal }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="promedioPonderado">{{metadata.promedioPonderado.label}}</label>
+                                 			<input type="number" id="promedioPonderado" class="form-control"
+		                                       name="promedioPonderado" [(ngModel)]="aforo.promedioPonderado" >
+		                                    <div *ngIf="formErrors.promedioPonderado" class="alert alert-danger">
+		                                           {{ formErrors.promedioPonderado }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="observaciones">{{metadata.observaciones.label}}</label>
+                                 			<input type="string" id="observaciones" class="form-control"
+		                                       name="observaciones" [(ngModel)]="aforo.observaciones" >
+		                                    <div *ngIf="formErrors.observaciones" class="alert alert-danger">
+		                                           {{ formErrors.observaciones }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

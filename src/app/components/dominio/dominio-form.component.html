@@ -1,0 +1,61 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Dominio FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #dominioForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="dominio">{{metadata.dominio.label}}</label>
+			
+		                                        <input type="string" id="dominio" class="form-control"
+required		                                               name="dominio" [(ngModel)]="dominio.dominioPK.dominio" >
+			
+		                                        <div *ngIf="formErrors.dominio" class="alert alert-danger">
+		                                               {{ formErrors.dominio }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="valor">{{metadata.valor.label}}</label>
+			
+		                                        <input type="string" id="valor" class="form-control"
+required		                                               name="valor" [(ngModel)]="dominio.dominioPK.valor" >
+			
+		                                        <div *ngIf="formErrors.valor" class="alert alert-danger">
+		                                               {{ formErrors.valor }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="descripcion">{{metadata.descripcion.label}}</label>
+                                 			<input type="string" id="descripcion" class="form-control"
+		                                       name="descripcion" [(ngModel)]="dominio.descripcion" >
+		                                    <div *ngIf="formErrors.descripcion" class="alert alert-danger">
+		                                           {{ formErrors.descripcion }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

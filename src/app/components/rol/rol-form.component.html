@@ -1,0 +1,50 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Rol FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #rolForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idRol">{{metadata.idRol.label}}</label>
+	
+	                                    <input type="number" id="idRol" class="form-control"
+required	                                           name="idRol" [(ngModel)]="rol.idRol" >
+	                                    <div *ngIf="formErrors.idRol" class="alert alert-danger">
+	                                           {{ formErrors.idRol }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreRol">{{metadata.nombreRol.label}}</label>
+                                 			<input type="string" id="nombreRol" class="form-control"
+required		                                       name="nombreRol" [(ngModel)]="rol.nombreRol" >
+		                                    <div *ngIf="formErrors.nombreRol" class="alert alert-danger">
+		                                           {{ formErrors.nombreRol }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

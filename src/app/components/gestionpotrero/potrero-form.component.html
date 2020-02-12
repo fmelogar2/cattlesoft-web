@@ -1,0 +1,125 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Potrero FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #potreroForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+			
+		                                        <input type="number" id="idHacienda" class="form-control"
+required		                                               name="idHacienda" [(ngModel)]="potrero.potreroPK.idHacienda" >
+			
+		                                        <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                               {{ formErrors.idHacienda }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idPotrero">{{metadata.idPotrero.label}}</label>
+			
+		                                        <input type="number" id="idPotrero" class="form-control"
+required		                                               name="idPotrero" [(ngModel)]="potrero.potreroPK.idPotrero" >
+			
+		                                        <div *ngIf="formErrors.idPotrero" class="alert alert-danger">
+		                                               {{ formErrors.idPotrero }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nomPotrero">{{metadata.nomPotrero.label}}</label>
+                                 			<input type="string" id="nomPotrero" class="form-control"
+required		                                       name="nomPotrero" [(ngModel)]="potrero.nomPotrero" >
+		                                    <div *ngIf="formErrors.nomPotrero" class="alert alert-danger">
+		                                           {{ formErrors.nomPotrero }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="extension">{{metadata.extension.label}}</label>
+                                 			<input type="number" id="extension" class="form-control"
+required		                                       name="extension" [(ngModel)]="potrero.extension" >
+		                                    <div *ngIf="formErrors.extension" class="alert alert-danger">
+		                                           {{ formErrors.extension }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="topografia">{{metadata.topografia.label}}</label>
+                                 			<input type="string" id="topografia" class="form-control"
+required		                                       name="topografia" [(ngModel)]="potrero.topografia" >
+		                                    <div *ngIf="formErrors.topografia" class="alert alert-danger">
+		                                           {{ formErrors.topografia }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estadoCercas">{{metadata.estadoCercas.label}}</label>
+                                 			<input type="string" id="estadoCercas" class="form-control"
+required		                                       name="estadoCercas" [(ngModel)]="potrero.estadoCercas" >
+		                                    <div *ngIf="formErrors.estadoCercas" class="alert alert-danger">
+		                                           {{ formErrors.estadoCercas }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="capacidadCarga">{{metadata.capacidadCarga.label}}</label>
+                                 			<input type="number" id="capacidadCarga" class="form-control"
+		                                       name="capacidadCarga" [(ngModel)]="potrero.capacidadCarga" >
+		                                    <div *ngIf="formErrors.capacidadCarga" class="alert alert-danger">
+		                                           {{ formErrors.capacidadCarga }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="cargaActual">{{metadata.cargaActual.label}}</label>
+                                 			<input type="number" id="cargaActual" class="form-control"
+required		                                       name="cargaActual" [(ngModel)]="potrero.cargaActual" >
+		                                    <div *ngIf="formErrors.cargaActual" class="alert alert-danger">
+		                                           {{ formErrors.cargaActual }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="arbLeguminosos">{{metadata.arbLeguminosos.label}}</label>
+                                 			<input type="string" id="arbLeguminosos" class="form-control"
+		                                       name="arbLeguminosos" [(ngModel)]="potrero.arbLeguminosos" >
+		                                    <div *ngIf="formErrors.arbLeguminosos" class="alert alert-danger">
+		                                           {{ formErrors.arbLeguminosos }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="arbOtros">{{metadata.arbOtros.label}}</label>
+                                 			<input type="string" id="arbOtros" class="form-control"
+		                                       name="arbOtros" [(ngModel)]="potrero.arbOtros" >
+		                                    <div *ngIf="formErrors.arbOtros" class="alert alert-danger">
+		                                           {{ formErrors.arbOtros }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estadoPotrero">{{metadata.estadoPotrero.label}}</label>
+                                 			<input type="string" id="estadoPotrero" class="form-control"
+required		                                       name="estadoPotrero" [(ngModel)]="potrero.estadoPotrero" >
+		                                    <div *ngIf="formErrors.estadoPotrero" class="alert alert-danger">
+		                                           {{ formErrors.estadoPotrero }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

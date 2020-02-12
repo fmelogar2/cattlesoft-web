@@ -1,0 +1,85 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Raza FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #razaForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="codigoRaza">{{metadata.codigoRaza.label}}</label>
+			
+		                                        <input type="string" id="codigoRaza" class="form-control"
+required		                                               name="codigoRaza" [(ngModel)]="raza.razaPK.codigoRaza" >
+			
+		                                        <div *ngIf="formErrors.codigoRaza" class="alert alert-danger">
+		                                               {{ formErrors.codigoRaza }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+			
+		                                        <input type="number" id="idHacienda" class="form-control"
+required		                                               name="idHacienda" [(ngModel)]="raza.razaPK.idHacienda" >
+			
+		                                        <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                               {{ formErrors.idHacienda }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreRaza">{{metadata.nombreRaza.label}}</label>
+                                 			<input type="string" id="nombreRaza" class="form-control"
+required		                                       name="nombreRaza" [(ngModel)]="raza.nombreRaza" >
+		                                    <div *ngIf="formErrors.nombreRaza" class="alert alert-danger">
+		                                           {{ formErrors.nombreRaza }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoRaza">{{metadata.tipoRaza.label}}</label>
+                                 			<input type="string" id="tipoRaza" class="form-control"
+required		                                       name="tipoRaza" [(ngModel)]="raza.tipoRaza" >
+		                                    <div *ngIf="formErrors.tipoRaza" class="alert alert-danger">
+		                                           {{ formErrors.tipoRaza }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="propositoRaza">{{metadata.propositoRaza.label}}</label>
+                                 			<input type="string" id="propositoRaza" class="form-control"
+required		                                       name="propositoRaza" [(ngModel)]="raza.propositoRaza" >
+		                                    <div *ngIf="formErrors.propositoRaza" class="alert alert-danger">
+		                                           {{ formErrors.propositoRaza }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="color">{{metadata.color.label}}</label>
+                                 			<input type="string" id="color" class="form-control"
+required		                                       name="color" [(ngModel)]="raza.color" >
+		                                    <div *ngIf="formErrors.color" class="alert alert-danger">
+		                                           {{ formErrors.color }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

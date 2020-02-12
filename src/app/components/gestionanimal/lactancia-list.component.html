@@ -1,0 +1,66 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Lactancia LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <lactancia-form-modal></lactancia-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="lactanciaList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.numeroLactancia.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idAnimal.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaInicio.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaFin.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let lactancia of lactanciaList" (click)="onSelectedLactancia(lactancia)">
+	                                	<td>{{lactancia.numeroLactancia}}</td>
+	                                    <td>{{lactancia.idAnimal}}</td>
+	                                    <td>{{lactancia.fechaInicio}}</td>
+	                                    <td>{{lactancia.fechaFin}}</td>
+	                                    <td>
+	                                        <lactancia-form-modal  [lactancia]='lactancia'></lactancia-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='lactancia'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

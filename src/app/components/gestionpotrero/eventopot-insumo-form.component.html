@@ -1,0 +1,61 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventopotInsumo FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #eventopotInsumoForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idInsumo">{{metadata.idInsumo.label}}</label>
+			
+		                                        <input type="number" id="idInsumo" class="form-control"
+required		                                               name="idInsumo" [(ngModel)]="eventopotInsumo.eventopotInsumoPK.idInsumo" >
+			
+		                                        <div *ngIf="formErrors.idInsumo" class="alert alert-danger">
+		                                               {{ formErrors.idInsumo }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idEventoPortrero">{{metadata.idEventoPortrero.label}}</label>
+			
+		                                        <input type="number" id="idEventoPortrero" class="form-control"
+required		                                               name="idEventoPortrero" [(ngModel)]="eventopotInsumo.eventopotInsumoPK.idEventoPortrero" >
+			
+		                                        <div *ngIf="formErrors.idEventoPortrero" class="alert alert-danger">
+		                                               {{ formErrors.idEventoPortrero }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="cantidad">{{metadata.cantidad.label}}</label>
+                                 			<input type="number" id="cantidad" class="form-control"
+required		                                       name="cantidad" [(ngModel)]="eventopotInsumo.cantidad" >
+		                                    <div *ngIf="formErrors.cantidad" class="alert alert-danger">
+		                                           {{ formErrors.cantidad }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

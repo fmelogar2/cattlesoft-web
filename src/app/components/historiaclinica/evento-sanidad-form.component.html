@@ -1,0 +1,111 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventoSanidad FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #eventoSanidadForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idAnimal">{{metadata.idAnimal.label}}</label>
+			
+		                                        <input type="number" id="idAnimal" class="form-control"
+required		                                               name="idAnimal" [(ngModel)]="eventoSanidad.eventoSanidadPK.idAnimal" >
+			
+		                                        <div *ngIf="formErrors.idAnimal" class="alert alert-danger">
+		                                               {{ formErrors.idAnimal }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="eventoSanidad">{{metadata.eventoSanidad.label}}</label>
+			
+		                                        <input type="string" id="eventoSanidad" class="form-control"
+required		                                               name="eventoSanidad" [(ngModel)]="eventoSanidad.eventoSanidadPK.eventoSanidad" >
+			
+		                                        <div *ngIf="formErrors.eventoSanidad" class="alert alert-danger">
+		                                               {{ formErrors.eventoSanidad }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="fechaConsulta">{{metadata.fechaConsulta.label}}</label>
+			
+		                                        <input type="string" id="fechaConsulta" class="form-control"
+required		                                               name="fechaConsulta" [(ngModel)]="eventoSanidad.eventoSanidadPK.fechaConsulta" >
+			
+		                                        <div *ngIf="formErrors.fechaConsulta" class="alert alert-danger">
+		                                               {{ formErrors.fechaConsulta }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoDocumentoVet">{{metadata.tipoDocumentoVet.label}}</label>
+                                 			<input type="string" id="tipoDocumentoVet" class="form-control"
+required		                                       name="tipoDocumentoVet" [(ngModel)]="eventoSanidad.tipoDocumentoVet" >
+		                                    <div *ngIf="formErrors.tipoDocumentoVet" class="alert alert-danger">
+		                                           {{ formErrors.tipoDocumentoVet }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numDocumentoVet">{{metadata.numDocumentoVet.label}}</label>
+                                 			<input type="string" id="numDocumentoVet" class="form-control"
+required		                                       name="numDocumentoVet" [(ngModel)]="eventoSanidad.numDocumentoVet" >
+		                                    <div *ngIf="formErrors.numDocumentoVet" class="alert alert-danger">
+		                                           {{ formErrors.numDocumentoVet }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="motivoConsulta">{{metadata.motivoConsulta.label}}</label>
+                                 			<input type="string" id="motivoConsulta" class="form-control"
+required		                                       name="motivoConsulta" [(ngModel)]="eventoSanidad.motivoConsulta" >
+		                                    <div *ngIf="formErrors.motivoConsulta" class="alert alert-danger">
+		                                           {{ formErrors.motivoConsulta }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="diagnostico">{{metadata.diagnostico.label}}</label>
+                                 			<input type="string" id="diagnostico" class="form-control"
+required		                                       name="diagnostico" [(ngModel)]="eventoSanidad.diagnostico" >
+		                                    <div *ngIf="formErrors.diagnostico" class="alert alert-danger">
+		                                           {{ formErrors.diagnostico }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tratamiento">{{metadata.tratamiento.label}}</label>
+                                 			<input type="string" id="tratamiento" class="form-control"
+required		                                       name="tratamiento" [(ngModel)]="eventoSanidad.tratamiento" >
+		                                    <div *ngIf="formErrors.tratamiento" class="alert alert-danger">
+		                                           {{ formErrors.tratamiento }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="edad">{{metadata.edad.label}}</label>
+                                 			<input type="string" id="edad" class="form-control"
+required		                                       name="edad" [(ngModel)]="eventoSanidad.edad" >
+		                                    <div *ngIf="formErrors.edad" class="alert alert-danger">
+		                                           {{ formErrors.edad }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

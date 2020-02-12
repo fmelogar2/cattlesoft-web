@@ -1,0 +1,145 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventoCelo FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #eventoCeloForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idAnimal">{{metadata.idAnimal.label}}</label>
+			
+		                                        <input type="number" id="idAnimal" class="form-control"
+required		                                               name="idAnimal" [(ngModel)]="eventoCelo.eventoCeloPK.idAnimal" >
+			
+		                                        <div *ngIf="formErrors.idAnimal" class="alert alert-danger">
+		                                               {{ formErrors.idAnimal }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="fechaEvento">{{metadata.fechaEvento.label}}</label>
+			
+		                                        <input type="string" id="fechaEvento" class="form-control"
+required		                                               name="fechaEvento" [(ngModel)]="eventoCelo.eventoCeloPK.fechaEvento" >
+			
+		                                        <div *ngIf="formErrors.fechaEvento" class="alert alert-danger">
+		                                               {{ formErrors.fechaEvento }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="tipoEvento">{{metadata.tipoEvento.label}}</label>
+			
+		                                        <input type="string" id="tipoEvento" class="form-control"
+required		                                               name="tipoEvento" [(ngModel)]="eventoCelo.eventoCeloPK.tipoEvento" >
+			
+		                                        <div *ngIf="formErrors.tipoEvento" class="alert alert-danger">
+		                                               {{ formErrors.tipoEvento }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="tipoServicio">{{metadata.tipoServicio.label}}</label>
+			
+		                                        <input type="string" id="tipoServicio" class="form-control"
+required		                                               name="tipoServicio" [(ngModel)]="eventoCelo.eventoCeloPK.tipoServicio" >
+			
+		                                        <div *ngIf="formErrors.tipoServicio" class="alert alert-danger">
+		                                               {{ formErrors.tipoServicio }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="codToro">{{metadata.codToro.label}}</label>
+                                 			<input type="string" id="codToro" class="form-control"
+		                                       name="codToro" [(ngModel)]="eventoCelo.codToro" >
+		                                    <div *ngIf="formErrors.codToro" class="alert alert-danger">
+		                                           {{ formErrors.codToro }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreToro">{{metadata.nombreToro.label}}</label>
+                                 			<input type="string" id="nombreToro" class="form-control"
+		                                       name="nombreToro" [(ngModel)]="eventoCelo.nombreToro" >
+		                                    <div *ngIf="formErrors.nombreToro" class="alert alert-danger">
+		                                           {{ formErrors.nombreToro }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="observaciones">{{metadata.observaciones.label}}</label>
+                                 			<input type="string" id="observaciones" class="form-control"
+		                                       name="observaciones" [(ngModel)]="eventoCelo.observaciones" >
+		                                    <div *ngIf="formErrors.observaciones" class="alert alert-danger">
+		                                           {{ formErrors.observaciones }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoServicioDonacion">{{metadata.tipoServicioDonacion.label}}</label>
+                                 			<input type="string" id="tipoServicioDonacion" class="form-control"
+		                                       name="tipoServicioDonacion" [(ngModel)]="eventoCelo.tipoServicioDonacion" >
+		                                    <div *ngIf="formErrors.tipoServicioDonacion" class="alert alert-danger">
+		                                           {{ formErrors.tipoServicioDonacion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idAnimalDonador">{{metadata.idAnimalDonador.label}}</label>
+                                 			<input type="number" id="idAnimalDonador" class="form-control"
+		                                       name="idAnimalDonador" [(ngModel)]="eventoCelo.idAnimalDonador" >
+		                                    <div *ngIf="formErrors.idAnimalDonador" class="alert alert-danger">
+		                                           {{ formErrors.idAnimalDonador }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaEventoDonacion">{{metadata.fechaEventoDonacion.label}}</label>
+                                 			<input type="string" id="fechaEventoDonacion" class="form-control"
+		                                       name="fechaEventoDonacion" [(ngModel)]="eventoCelo.fechaEventoDonacion" >
+		                                    <div *ngIf="formErrors.fechaEventoDonacion" class="alert alert-danger">
+		                                           {{ formErrors.fechaEventoDonacion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoEventoDonacion">{{metadata.tipoEventoDonacion.label}}</label>
+                                 			<input type="string" id="tipoEventoDonacion" class="form-control"
+		                                       name="tipoEventoDonacion" [(ngModel)]="eventoCelo.tipoEventoDonacion" >
+		                                    <div *ngIf="formErrors.tipoEventoDonacion" class="alert alert-danger">
+		                                           {{ formErrors.tipoEventoDonacion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idPajilla">{{metadata.idPajilla.label}}</label>
+                                 			<input type="number" id="idPajilla" class="form-control"
+		                                       name="idPajilla" [(ngModel)]="eventoCelo.idPajilla" >
+		                                    <div *ngIf="formErrors.idPajilla" class="alert alert-danger">
+		                                           {{ formErrors.idPajilla }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idAnimalMontaDirecta">{{metadata.idAnimalMontaDirecta.label}}</label>
+                                 			<input type="number" id="idAnimalMontaDirecta" class="form-control"
+		                                       name="idAnimalMontaDirecta" [(ngModel)]="eventoCelo.idAnimalMontaDirecta" >
+		                                    <div *ngIf="formErrors.idAnimalMontaDirecta" class="alert alert-danger">
+		                                           {{ formErrors.idAnimalMontaDirecta }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

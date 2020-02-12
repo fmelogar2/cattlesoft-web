@@ -1,0 +1,93 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>ChequeoMastitis FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #chequeoMastitisForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idAnimal">{{metadata.idAnimal.label}}</label>
+			
+		                                        <input type="number" id="idAnimal" class="form-control"
+required		                                               name="idAnimal" [(ngModel)]="chequeoMastitis.chequeoMastitisPK.idAnimal" >
+			
+		                                        <div *ngIf="formErrors.idAnimal" class="alert alert-danger">
+		                                               {{ formErrors.idAnimal }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="fechaChequeo">{{metadata.fechaChequeo.label}}</label>
+			
+		                                        <input type="string" id="fechaChequeo" class="form-control"
+required		                                               name="fechaChequeo" [(ngModel)]="chequeoMastitis.chequeoMastitisPK.fechaChequeo" >
+			
+		                                        <div *ngIf="formErrors.fechaChequeo" class="alert alert-danger">
+		                                               {{ formErrors.fechaChequeo }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="cuartoDelDer">{{metadata.cuartoDelDer.label}}</label>
+                                 			<input type="string" id="cuartoDelDer" class="form-control"
+required		                                       name="cuartoDelDer" [(ngModel)]="chequeoMastitis.cuartoDelDer" >
+		                                    <div *ngIf="formErrors.cuartoDelDer" class="alert alert-danger">
+		                                           {{ formErrors.cuartoDelDer }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="cuartoDelIzq">{{metadata.cuartoDelIzq.label}}</label>
+                                 			<input type="string" id="cuartoDelIzq" class="form-control"
+required		                                       name="cuartoDelIzq" [(ngModel)]="chequeoMastitis.cuartoDelIzq" >
+		                                    <div *ngIf="formErrors.cuartoDelIzq" class="alert alert-danger">
+		                                           {{ formErrors.cuartoDelIzq }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="cuartoTraDer">{{metadata.cuartoTraDer.label}}</label>
+                                 			<input type="string" id="cuartoTraDer" class="form-control"
+required		                                       name="cuartoTraDer" [(ngModel)]="chequeoMastitis.cuartoTraDer" >
+		                                    <div *ngIf="formErrors.cuartoTraDer" class="alert alert-danger">
+		                                           {{ formErrors.cuartoTraDer }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="cuartoTraIzq">{{metadata.cuartoTraIzq.label}}</label>
+                                 			<input type="string" id="cuartoTraIzq" class="form-control"
+required		                                       name="cuartoTraIzq" [(ngModel)]="chequeoMastitis.cuartoTraIzq" >
+		                                    <div *ngIf="formErrors.cuartoTraIzq" class="alert alert-danger">
+		                                           {{ formErrors.cuartoTraIzq }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="observaciones">{{metadata.observaciones.label}}</label>
+                                 			<input type="string" id="observaciones" class="form-control"
+		                                       name="observaciones" [(ngModel)]="chequeoMastitis.observaciones" >
+		                                    <div *ngIf="formErrors.observaciones" class="alert alert-danger">
+		                                           {{ formErrors.observaciones }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

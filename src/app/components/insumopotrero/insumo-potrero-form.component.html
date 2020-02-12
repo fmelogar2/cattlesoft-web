@@ -1,0 +1,66 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>InsumoPotrero FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #insumoPotreroForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idInsumo">{{metadata.idInsumo.label}}</label>
+	
+	                                    <input type="number" id="idInsumo" class="form-control"
+required	                                           name="idInsumo" [(ngModel)]="insumoPotrero.idInsumo" >
+	                                    <div *ngIf="formErrors.idInsumo" class="alert alert-danger">
+	                                           {{ formErrors.idInsumo }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreInsumo">{{metadata.nombreInsumo.label}}</label>
+                                 			<input type="string" id="nombreInsumo" class="form-control"
+		                                       name="nombreInsumo" [(ngModel)]="insumoPotrero.nombreInsumo" >
+		                                    <div *ngIf="formErrors.nombreInsumo" class="alert alert-danger">
+		                                           {{ formErrors.nombreInsumo }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="descripcionInsumo">{{metadata.descripcionInsumo.label}}</label>
+                                 			<input type="string" id="descripcionInsumo" class="form-control"
+		                                       name="descripcionInsumo" [(ngModel)]="insumoPotrero.descripcionInsumo" >
+		                                    <div *ngIf="formErrors.descripcionInsumo" class="alert alert-danger">
+		                                           {{ formErrors.descripcionInsumo }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estado">{{metadata.estado.label}}</label>
+                                 			<input type="string" id="estado" class="form-control"
+required		                                       name="estado" [(ngModel)]="insumoPotrero.estado" >
+		                                    <div *ngIf="formErrors.estado" class="alert alert-danger">
+		                                           {{ formErrors.estado }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

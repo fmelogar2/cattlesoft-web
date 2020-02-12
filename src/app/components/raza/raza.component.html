@@ -1,0 +1,38 @@
+<div id="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-title">
+						<h3>Funcionalidad Raza</h3>
+					</div>
+					<sa-widget [colorbutton]="false" [editbutton]="false" [togglebutton]="false" [deletebutton]="false"
+					 [fullscreenbutton]="false">
+						<header role="heading">
+							<h2 class="hidden-xs hidden-sm"></h2>
+						</header>
+
+						<div role="content" class="tabbed-widget-content">
+							<div class="widget-body">
+								<tabset type="tabs pull-right">
+									<tab active="true">
+										<ng-template tabHeading>
+											<span class="hidden-mobile hidden-tablet">Raza</span>
+										</ng-template>
+										<raza-list ></raza-list>
+									</tab>
+									<tab active="true">
+										<ng-template tabHeading>
+											<span class="hidden-mobile hidden-tablet">PresentacionDosis</span>
+										</ng-template>
+										<presentacion-dosis-list ></presentacion-dosis-list>
+									</tab>
+								</tabset>
+							</div>
+						</div>
+					</sa-widget>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,102 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Potrero LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <button type="button" class="btn btn-primary btn-lg" (click)= "advancedSearch()">
+	                        <span class="icon glyphicon glyphicon-search"></span><span class="title"> Advanced search</span>
+	                    </button>
+	                    <potrero-form-modal></potrero-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="potreroList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idHacienda.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idPotrero.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.nomPotrero.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.extension.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.topografia.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.estadoCercas.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.capacidadCarga.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.cargaActual.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.arbLeguminosos.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.arbOtros.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.estadoPotrero.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let potrero of potreroList" (click)="onSelectedPotrero(potrero)">
+	                            		<td>{{potrero.potreroPK.idHacienda}}</td>	
+	                            		<td>{{potrero.potreroPK.idPotrero}}</td>	
+	                                	<td>{{potrero.idHacienda}}</td>
+	                                    <td>{{potrero.nomPotrero}}</td>
+	                                    <td>{{potrero.extension}}</td>
+	                                    <td>{{potrero.topografia}}</td>
+	                                    <td>{{potrero.estadoCercas}}</td>
+	                                    <td>{{potrero.capacidadCarga}}</td>
+	                                    <td>{{potrero.cargaActual}}</td>
+	                                    <td>{{potrero.arbLeguminosos}}</td>
+	                                    <td>{{potrero.arbOtros}}</td>
+	                                    <td>{{potrero.estadoPotrero}}</td>
+	                                    <td>
+	                                        <potrero-form-modal  [potrero]='potrero'></potrero-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='potrero'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<sa-widget [hidden]='!selectedPotrero' [colorbutton]="false" [editbutton]="false" [togglebutton]="false" [deletebutton]="false" [fullscreenbutton]="false">
+	<header role="heading">
+		<h2 class="hidden-xs hidden-sm">Potrero Hijos</h2>
+	</header>
+	
+	<div role="content" class="tabbed-widget-content">
+		<div class="widget-body">
+			<tabset type="tabs pull-right">
+				<tab active="true">
+					<ng-template tabHeading>
+						<span class="hidden-mobile hidden-tablet">EventoPotrero</span>
+					</ng-template>
+					<evento-potrero-list [potrero]="selectedPotrero" ></evento-potrero-list>
+				</tab>
+			</tabset>
+		</div>
+	</div>
+</sa-widget>

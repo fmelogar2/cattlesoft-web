@@ -1,0 +1,114 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Animal LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <animal-form-modal></animal-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="animalList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idAnimal.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idHacienda.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numVaca.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numRegistro.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.marcaOreja.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.marcaHierro.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.nombre.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaNacimiento.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.sexo.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.foto.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.estadoProduccion.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaDescarte.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.motivoDescarte.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.observaciones.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaIngreso.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fincaOrigen.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idAnimalPadre.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.codMadre.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.nomMadre.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.codPadre.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.nomPadre.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.procedencia.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.lactancia.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.origenPadre.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.estadoAnimal.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.estadoReproductivo.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idLote.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idAnimalMadre.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let animal of animalList" (click)="onSelectedAnimal(animal)">
+	                                	<td>{{animal.idAnimal}}</td>
+	                                    <td>{{animal.idHacienda}}</td>
+	                                    <td>{{animal.numVaca}}</td>
+	                                    <td>{{animal.numRegistro}}</td>
+	                                    <td>{{animal.marcaOreja}}</td>
+	                                    <td>{{animal.marcaHierro}}</td>
+	                                    <td>{{animal.nombre}}</td>
+	                                    <td>{{animal.fechaNacimiento}}</td>
+	                                    <td>{{animal.sexo}}</td>
+	                                    <td>{{animal.foto}}</td>
+	                                    <td>{{animal.estadoProduccion}}</td>
+	                                    <td>{{animal.fechaDescarte}}</td>
+	                                    <td>{{animal.motivoDescarte}}</td>
+	                                    <td>{{animal.observaciones}}</td>
+	                                    <td>{{animal.fechaIngreso}}</td>
+	                                    <td>{{animal.fincaOrigen}}</td>
+	                                    <td>{{animal.idAnimalPadre}}</td>
+	                                    <td>{{animal.codMadre}}</td>
+	                                    <td>{{animal.nomMadre}}</td>
+	                                    <td>{{animal.codPadre}}</td>
+	                                    <td>{{animal.nomPadre}}</td>
+	                                    <td>{{animal.procedencia}}</td>
+	                                    <td>{{animal.lactancia}}</td>
+	                                    <td>{{animal.origenPadre}}</td>
+	                                    <td>{{animal.estadoAnimal}}</td>
+	                                    <td>{{animal.estadoReproductivo}}</td>
+	                                    <td>{{animal.idLote}}</td>
+	                                    <td>{{animal.idAnimalMadre}}</td>
+	                                    <td>
+	                                        <animal-form-modal  [animal]='animal'></animal-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='animal'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

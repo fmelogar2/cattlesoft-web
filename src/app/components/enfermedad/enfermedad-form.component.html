@@ -1,0 +1,58 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Enfermedad FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #enfermedadForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idEnfermedad">{{metadata.idEnfermedad.label}}</label>
+	
+	                                    <input type="number" id="idEnfermedad" class="form-control"
+required	                                           name="idEnfermedad" [(ngModel)]="enfermedad.idEnfermedad" >
+	                                    <div *ngIf="formErrors.idEnfermedad" class="alert alert-danger">
+	                                           {{ formErrors.idEnfermedad }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="codigoEnfermedad">{{metadata.codigoEnfermedad.label}}</label>
+                                 			<input type="string" id="codigoEnfermedad" class="form-control"
+required		                                       name="codigoEnfermedad" [(ngModel)]="enfermedad.codigoEnfermedad" >
+		                                    <div *ngIf="formErrors.codigoEnfermedad" class="alert alert-danger">
+		                                           {{ formErrors.codigoEnfermedad }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="descripcion">{{metadata.descripcion.label}}</label>
+                                 			<input type="string" id="descripcion" class="form-control"
+required		                                       name="descripcion" [(ngModel)]="enfermedad.descripcion" >
+		                                    <div *ngIf="formErrors.descripcion" class="alert alert-danger">
+		                                           {{ formErrors.descripcion }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Medio LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <medio-form-modal></medio-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="medioList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.tipoDocumento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.numDocumento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idMedio.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.medio.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let medio of medioList" (click)="onSelectedMedio(medio)">
+	                            		<td>{{medio.medioPK.tipoDocumento}}</td>	
+	                            		<td>{{medio.medioPK.numDocumento}}</td>	
+	                            		<td>{{medio.medioPK.idMedio}}</td>	
+	                                	<td>{{medio.tipoDocumento}}</td>
+	                                    <td>{{medio.medio}}</td>
+	                                    <td>
+	                                        <medio-form-modal  [medio]='medio'></medio-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='medio'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

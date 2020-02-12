@@ -1,0 +1,154 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Hacienda FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #haciendaForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+	
+	                                    <input type="number" id="idHacienda" class="form-control"
+required	                                           name="idHacienda" [(ngModel)]="hacienda.idHacienda" >
+	                                    <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+	                                           {{ formErrors.idHacienda }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreHacienda">{{metadata.nombreHacienda.label}}</label>
+                                 			<input type="string" id="nombreHacienda" class="form-control"
+required		                                       name="nombreHacienda" [(ngModel)]="hacienda.nombreHacienda" >
+		                                    <div *ngIf="formErrors.nombreHacienda" class="alert alert-danger">
+		                                           {{ formErrors.nombreHacienda }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="departamento">{{metadata.departamento.label}}</label>
+                                 			<input type="string" id="departamento" class="form-control"
+required		                                       name="departamento" [(ngModel)]="hacienda.departamento" >
+		                                    <div *ngIf="formErrors.departamento" class="alert alert-danger">
+		                                           {{ formErrors.departamento }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="municipio">{{metadata.municipio.label}}</label>
+                                 			<input type="string" id="municipio" class="form-control"
+required		                                       name="municipio" [(ngModel)]="hacienda.municipio" >
+		                                    <div *ngIf="formErrors.municipio" class="alert alert-danger">
+		                                           {{ formErrors.municipio }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="vereda">{{metadata.vereda.label}}</label>
+                                 			<input type="string" id="vereda" class="form-control"
+		                                       name="vereda" [(ngModel)]="hacienda.vereda" >
+		                                    <div *ngIf="formErrors.vereda" class="alert alert-danger">
+		                                           {{ formErrors.vereda }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="direccion">{{metadata.direccion.label}}</label>
+                                 			<input type="string" id="direccion" class="form-control"
+required		                                       name="direccion" [(ngModel)]="hacienda.direccion" >
+		                                    <div *ngIf="formErrors.direccion" class="alert alert-danger">
+		                                           {{ formErrors.direccion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="latitud">{{metadata.latitud.label}}</label>
+                                 			<input type="number" id="latitud" class="form-control"
+		                                       name="latitud" [(ngModel)]="hacienda.latitud" >
+		                                    <div *ngIf="formErrors.latitud" class="alert alert-danger">
+		                                           {{ formErrors.latitud }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="longitud">{{metadata.longitud.label}}</label>
+                                 			<input type="number" id="longitud" class="form-control"
+		                                       name="longitud" [(ngModel)]="hacienda.longitud" >
+		                                    <div *ngIf="formErrors.longitud" class="alert alert-danger">
+		                                           {{ formErrors.longitud }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numCasas">{{metadata.numCasas.label}}</label>
+                                 			<input type="number" id="numCasas" class="form-control"
+		                                       name="numCasas" [(ngModel)]="hacienda.numCasas" >
+		                                    <div *ngIf="formErrors.numCasas" class="alert alert-danger">
+		                                           {{ formErrors.numCasas }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaCreacion">{{metadata.fechaCreacion.label}}</label>
+                                 			<input type="string" id="fechaCreacion" class="form-control"
+required		                                       name="fechaCreacion" [(ngModel)]="hacienda.fechaCreacion" >
+		                                    <div *ngIf="formErrors.fechaCreacion" class="alert alert-danger">
+		                                           {{ formErrors.fechaCreacion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numBodegas">{{metadata.numBodegas.label}}</label>
+                                 			<input type="number" id="numBodegas" class="form-control"
+		                                       name="numBodegas" [(ngModel)]="hacienda.numBodegas" >
+		                                    <div *ngIf="formErrors.numBodegas" class="alert alert-danger">
+		                                           {{ formErrors.numBodegas }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numCorrales">{{metadata.numCorrales.label}}</label>
+                                 			<input type="number" id="numCorrales" class="form-control"
+		                                       name="numCorrales" [(ngModel)]="hacienda.numCorrales" >
+		                                    <div *ngIf="formErrors.numCorrales" class="alert alert-danger">
+		                                           {{ formErrors.numCorrales }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numTerneriles">{{metadata.numTerneriles.label}}</label>
+                                 			<input type="number" id="numTerneriles" class="form-control"
+		                                       name="numTerneriles" [(ngModel)]="hacienda.numTerneriles" >
+		                                    <div *ngIf="formErrors.numTerneriles" class="alert alert-danger">
+		                                           {{ formErrors.numTerneriles }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoOrdenio">{{metadata.tipoOrdenio.label}}</label>
+                                 			<input type="string" id="tipoOrdenio" class="form-control"
+required		                                       name="tipoOrdenio" [(ngModel)]="hacienda.tipoOrdenio" >
+		                                    <div *ngIf="formErrors.tipoOrdenio" class="alert alert-danger">
+		                                           {{ formErrors.tipoOrdenio }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numPuestos">{{metadata.numPuestos.label}}</label>
+                                 			<input type="number" id="numPuestos" class="form-control"
+		                                       name="numPuestos" [(ngModel)]="hacienda.numPuestos" >
+		                                    <div *ngIf="formErrors.numPuestos" class="alert alert-danger">
+		                                           {{ formErrors.numPuestos }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

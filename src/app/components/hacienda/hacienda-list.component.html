@@ -1,0 +1,91 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Hacienda LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <button type="button" class="btn btn-primary btn-lg" (click)= "advancedSearch()">
+	                        <span class="icon glyphicon glyphicon-search"></span><span class="title"> Advanced search</span>
+	                    </button>
+	                    <hacienda-form-modal></hacienda-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="haciendaList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idHacienda.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.nombreHacienda.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.departamento.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.municipio.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.vereda.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.direccion.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.latitud.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.longitud.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numCasas.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaCreacion.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numBodegas.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numCorrales.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numTerneriles.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.tipoOrdenio.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numPuestos.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let hacienda of haciendaList" (click)="onSelectedHacienda(hacienda)">
+	                                	<td>{{hacienda.idHacienda}}</td>
+	                                    <td>{{hacienda.nombreHacienda}}</td>
+	                                    <td>{{hacienda.departamento}}</td>
+	                                    <td>{{hacienda.municipio}}</td>
+	                                    <td>{{hacienda.vereda}}</td>
+	                                    <td>{{hacienda.direccion}}</td>
+	                                    <td>{{hacienda.latitud}}</td>
+	                                    <td>{{hacienda.longitud}}</td>
+	                                    <td>{{hacienda.numCasas}}</td>
+	                                    <td>{{hacienda.fechaCreacion}}</td>
+	                                    <td>{{hacienda.numBodegas}}</td>
+	                                    <td>{{hacienda.numCorrales}}</td>
+	                                    <td>{{hacienda.numTerneriles}}</td>
+	                                    <td>{{hacienda.tipoOrdenio}}</td>
+	                                    <td>{{hacienda.numPuestos}}</td>
+	                                    <td>
+	                                        <hacienda-form-modal  [hacienda]='hacienda'></hacienda-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='hacienda'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

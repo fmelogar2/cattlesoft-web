@@ -1,0 +1,100 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventoReproduccion LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <button type="button" class="btn btn-primary btn-lg" (click)= "advancedSearch()">
+	                        <span class="icon glyphicon glyphicon-search"></span><span class="title"> Advanced search</span>
+	                    </button>
+	                    <evento-reproduccion-form-modal></evento-reproduccion-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="eventoReproduccionList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idAnimal.label }}</th>
+	                                	<th data-class="expand">{{ metadata.tipoEvento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.fechaEvento.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.tipoServicio.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.resultadoPalpacion.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.observaciones.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.tipoDocumento.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.numDocumento.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.sexoCria.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.estadoCria.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let eventoReproduccion of eventoReproduccionList" (click)="onSelectedEventoReproduccion(eventoReproduccion)">
+	                            		<td>{{eventoReproduccion.eventoReproduccionPK.idAnimal}}</td>	
+	                            		<td>{{eventoReproduccion.eventoReproduccionPK.tipoEvento}}</td>	
+	                            		<td>{{eventoReproduccion.eventoReproduccionPK.fechaEvento}}</td>	
+	                                	<td>{{eventoReproduccion.idAnimal}}</td>
+	                                    <td>{{eventoReproduccion.tipoServicio}}</td>
+	                                    <td>{{eventoReproduccion.resultadoPalpacion}}</td>
+	                                    <td>{{eventoReproduccion.observaciones}}</td>
+	                                    <td>{{eventoReproduccion.tipoDocumento}}</td>
+	                                    <td>{{eventoReproduccion.numDocumento}}</td>
+	                                    <td>{{eventoReproduccion.sexoCria}}</td>
+	                                    <td>{{eventoReproduccion.estadoCria}}</td>
+	                                    <td>
+	                                        <evento-reproduccion-form-modal  [eventoReproduccion]='eventoReproduccion'></evento-reproduccion-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='eventoReproduccion'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<sa-widget [hidden]='!selectedEventoReproduccion' [colorbutton]="false" [editbutton]="false" [togglebutton]="false" [deletebutton]="false" [fullscreenbutton]="false">
+	<header role="heading">
+		<h2 class="hidden-xs hidden-sm">EventoReproduccion Hijos</h2>
+	</header>
+	
+	<div role="content" class="tabbed-widget-content">
+		<div class="widget-body">
+			<tabset type="tabs pull-right">
+				<tab active="true">
+					<ng-template tabHeading>
+						<span class="hidden-mobile hidden-tablet">EventoCelo</span>
+					</ng-template>
+					<evento-celo-list [eventoReproduccion]="selectedEventoReproduccion" ></evento-celo-list>
+				</tab>
+			</tabset>
+		</div>
+	</div>
+</sa-widget>

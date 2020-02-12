@@ -1,0 +1,61 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Lluvia FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #lluviaForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+			
+		                                        <input type="number" id="idHacienda" class="form-control"
+required		                                               name="idHacienda" [(ngModel)]="lluvia.lluviaPK.idHacienda" >
+			
+		                                        <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                               {{ formErrors.idHacienda }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="fecha">{{metadata.fecha.label}}</label>
+			
+		                                        <input type="string" id="fecha" class="form-control"
+required		                                               name="fecha" [(ngModel)]="lluvia.lluviaPK.fecha" >
+			
+		                                        <div *ngIf="formErrors.fecha" class="alert alert-danger">
+		                                               {{ formErrors.fecha }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="cantidad">{{metadata.cantidad.label}}</label>
+                                 			<input type="number" id="cantidad" class="form-control"
+required		                                       name="cantidad" [(ngModel)]="lluvia.cantidad" >
+		                                    <div *ngIf="formErrors.cantidad" class="alert alert-danger">
+		                                           {{ formErrors.cantidad }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

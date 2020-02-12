@@ -1,0 +1,98 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Medicamento FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #medicamentoForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idMedicamento">{{metadata.idMedicamento.label}}</label>
+	
+	                                    <input type="number" id="idMedicamento" class="form-control"
+required	                                           name="idMedicamento" [(ngModel)]="medicamento.idMedicamento" >
+	                                    <div *ngIf="formErrors.idMedicamento" class="alert alert-danger">
+	                                           {{ formErrors.idMedicamento }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreComercial">{{metadata.nombreComercial.label}}</label>
+                                 			<input type="string" id="nombreComercial" class="form-control"
+required		                                       name="nombreComercial" [(ngModel)]="medicamento.nombreComercial" >
+		                                    <div *ngIf="formErrors.nombreComercial" class="alert alert-danger">
+		                                           {{ formErrors.nombreComercial }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreGenerico">{{metadata.nombreGenerico.label}}</label>
+                                 			<input type="string" id="nombreGenerico" class="form-control"
+required		                                       name="nombreGenerico" [(ngModel)]="medicamento.nombreGenerico" >
+		                                    <div *ngIf="formErrors.nombreGenerico" class="alert alert-danger">
+		                                           {{ formErrors.nombreGenerico }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="principioActivo">{{metadata.principioActivo.label}}</label>
+                                 			<input type="string" id="principioActivo" class="form-control"
+required		                                       name="principioActivo" [(ngModel)]="medicamento.principioActivo" >
+		                                    <div *ngIf="formErrors.principioActivo" class="alert alert-danger">
+		                                           {{ formErrors.principioActivo }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="descripcion">{{metadata.descripcion.label}}</label>
+                                 			<input type="string" id="descripcion" class="form-control"
+		                                       name="descripcion" [(ngModel)]="medicamento.descripcion" >
+		                                    <div *ngIf="formErrors.descripcion" class="alert alert-danger">
+		                                           {{ formErrors.descripcion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="contraindicaciones">{{metadata.contraindicaciones.label}}</label>
+                                 			<input type="string" id="contraindicaciones" class="form-control"
+required		                                       name="contraindicaciones" [(ngModel)]="medicamento.contraindicaciones" >
+		                                    <div *ngIf="formErrors.contraindicaciones" class="alert alert-danger">
+		                                           {{ formErrors.contraindicaciones }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="diasRetiroLeche">{{metadata.diasRetiroLeche.label}}</label>
+                                 			<input type="number" id="diasRetiroLeche" class="form-control"
+		                                       name="diasRetiroLeche" [(ngModel)]="medicamento.diasRetiroLeche" >
+		                                    <div *ngIf="formErrors.diasRetiroLeche" class="alert alert-danger">
+		                                           {{ formErrors.diasRetiroLeche }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estado">{{metadata.estado.label}}</label>
+                                 			<input type="string" id="estado" class="form-control"
+required		                                       name="estado" [(ngModel)]="medicamento.estado" >
+		                                    <div *ngIf="formErrors.estado" class="alert alert-danger">
+		                                           {{ formErrors.estado }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

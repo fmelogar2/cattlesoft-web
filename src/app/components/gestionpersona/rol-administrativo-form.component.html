@@ -1,0 +1,91 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>RolAdministrativo FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #rolAdministrativoForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="tipoDocumento">{{metadata.tipoDocumento.label}}</label>
+			
+		                                        <input type="string" id="tipoDocumento" class="form-control"
+required		                                               name="tipoDocumento" [(ngModel)]="rolAdministrativo.rolAdministrativoPK.tipoDocumento" >
+			
+		                                        <div *ngIf="formErrors.tipoDocumento" class="alert alert-danger">
+		                                               {{ formErrors.tipoDocumento }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="numDocumento">{{metadata.numDocumento.label}}</label>
+			
+		                                        <input type="string" id="numDocumento" class="form-control"
+required		                                               name="numDocumento" [(ngModel)]="rolAdministrativo.rolAdministrativoPK.numDocumento" >
+			
+		                                        <div *ngIf="formErrors.numDocumento" class="alert alert-danger">
+		                                               {{ formErrors.numDocumento }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+			
+		                                        <input type="number" id="idHacienda" class="form-control"
+required		                                               name="idHacienda" [(ngModel)]="rolAdministrativo.rolAdministrativoPK.idHacienda" >
+			
+		                                        <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                               {{ formErrors.idHacienda }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idRol">{{metadata.idRol.label}}</label>
+			
+		                                        <input type="number" id="idRol" class="form-control"
+required		                                               name="idRol" [(ngModel)]="rolAdministrativo.rolAdministrativoPK.idRol" >
+			
+		                                        <div *ngIf="formErrors.idRol" class="alert alert-danger">
+		                                               {{ formErrors.idRol }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="fechaInicioRol">{{metadata.fechaInicioRol.label}}</label>
+			
+		                                        <input type="string" id="fechaInicioRol" class="form-control"
+required		                                               name="fechaInicioRol" [(ngModel)]="rolAdministrativo.rolAdministrativoPK.fechaInicioRol" >
+			
+		                                        <div *ngIf="formErrors.fechaInicioRol" class="alert alert-danger">
+		                                               {{ formErrors.fechaInicioRol }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaFinRol">{{metadata.fechaFinRol.label}}</label>
+                                 			<input type="string" id="fechaFinRol" class="form-control"
+		                                       name="fechaFinRol" [(ngModel)]="rolAdministrativo.fechaFinRol" >
+		                                    <div *ngIf="formErrors.fechaFinRol" class="alert alert-danger">
+		                                           {{ formErrors.fechaFinRol }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

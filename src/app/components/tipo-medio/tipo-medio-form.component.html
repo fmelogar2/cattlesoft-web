@@ -1,0 +1,58 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>TipoMedio FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #tipoMedioForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idMedio">{{metadata.idMedio.label}}</label>
+	
+	                                    <input type="number" id="idMedio" class="form-control"
+required	                                           name="idMedio" [(ngModel)]="tipoMedio.idMedio" >
+	                                    <div *ngIf="formErrors.idMedio" class="alert alert-danger">
+	                                           {{ formErrors.idMedio }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoMedio">{{metadata.tipoMedio.label}}</label>
+                                 			<input type="string" id="tipoMedio" class="form-control"
+required		                                       name="tipoMedio" [(ngModel)]="tipoMedio.tipoMedio" >
+		                                    <div *ngIf="formErrors.tipoMedio" class="alert alert-danger">
+		                                           {{ formErrors.tipoMedio }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="subTipo">{{metadata.subTipo.label}}</label>
+                                 			<input type="string" id="subTipo" class="form-control"
+required		                                       name="subTipo" [(ngModel)]="tipoMedio.subTipo" >
+		                                    <div *ngIf="formErrors.subTipo" class="alert alert-danger">
+		                                           {{ formErrors.subTipo }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

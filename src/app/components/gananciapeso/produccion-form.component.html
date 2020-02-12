@@ -1,0 +1,93 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Produccion FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #produccionForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idProduccion">{{metadata.idProduccion.label}}</label>
+			
+		                                        <input type="number" id="idProduccion" class="form-control"
+required		                                               name="idProduccion" [(ngModel)]="produccion.produccionPK.idProduccion" >
+			
+		                                        <div *ngIf="formErrors.idProduccion" class="alert alert-danger">
+		                                               {{ formErrors.idProduccion }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idAnimal">{{metadata.idAnimal.label}}</label>
+			
+		                                        <input type="number" id="idAnimal" class="form-control"
+required		                                               name="idAnimal" [(ngModel)]="produccion.produccionPK.idAnimal" >
+			
+		                                        <div *ngIf="formErrors.idAnimal" class="alert alert-danger">
+		                                               {{ formErrors.idAnimal }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoProduccion">{{metadata.tipoProduccion.label}}</label>
+                                 			<input type="string" id="tipoProduccion" class="form-control"
+required		                                       name="tipoProduccion" [(ngModel)]="produccion.tipoProduccion" >
+		                                    <div *ngIf="formErrors.tipoProduccion" class="alert alert-danger">
+		                                           {{ formErrors.tipoProduccion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fecha">{{metadata.fecha.label}}</label>
+                                 			<input type="string" id="fecha" class="form-control"
+required		                                       name="fecha" [(ngModel)]="produccion.fecha" >
+		                                    <div *ngIf="formErrors.fecha" class="alert alert-danger">
+		                                           {{ formErrors.fecha }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="valorProduccion">{{metadata.valorProduccion.label}}</label>
+                                 			<input type="number" id="valorProduccion" class="form-control"
+required		                                       name="valorProduccion" [(ngModel)]="produccion.valorProduccion" >
+		                                    <div *ngIf="formErrors.valorProduccion" class="alert alert-danger">
+		                                           {{ formErrors.valorProduccion }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numLactancia">{{metadata.numLactancia.label}}</label>
+                                 			<input type="number" id="numLactancia" class="form-control"
+		                                       name="numLactancia" [(ngModel)]="produccion.numLactancia" >
+		                                    <div *ngIf="formErrors.numLactancia" class="alert alert-danger">
+		                                           {{ formErrors.numLactancia }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="hora">{{metadata.hora.label}}</label>
+                                 			<input type="string" id="hora" class="form-control"
+		                                       name="hora" [(ngModel)]="produccion.hora" >
+		                                    <div *ngIf="formErrors.hora" class="alert alert-danger">
+		                                           {{ formErrors.hora }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

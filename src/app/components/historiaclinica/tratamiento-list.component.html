@@ -1,0 +1,69 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Tratamiento LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <tratamiento-form-modal></tratamiento-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="tratamientoList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.eventoSanidad.label }}</th>
+	                                	<th data-class="expand">{{ metadata.fechaConsulta.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idMedicamento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idAnimal.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idPresentacion.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let tratamiento of tratamientoList" (click)="onSelectedTratamiento(tratamiento)">
+	                            		<td>{{tratamiento.tratamientoPK.eventoSanidad}}</td>	
+	                            		<td>{{tratamiento.tratamientoPK.fechaConsulta}}</td>	
+	                            		<td>{{tratamiento.tratamientoPK.idMedicamento}}</td>	
+	                            		<td>{{tratamiento.tratamientoPK.idAnimal}}</td>	
+	                            		<td>{{tratamiento.tratamientoPK.idPresentacion}}</td>	
+	                                	<td>{{tratamiento.eventoSanidad}}</td>
+	                                    <td>
+	                                        <tratamiento-form-modal  [tratamiento]='tratamiento'></tratamiento-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='tratamiento'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

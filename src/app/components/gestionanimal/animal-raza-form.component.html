@@ -1,0 +1,71 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>AnimalRaza FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #animalRazaForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idAnimal">{{metadata.idAnimal.label}}</label>
+			
+		                                        <input type="number" id="idAnimal" class="form-control"
+required		                                               name="idAnimal" [(ngModel)]="animalRaza.animalRazaPK.idAnimal" >
+			
+		                                        <div *ngIf="formErrors.idAnimal" class="alert alert-danger">
+		                                               {{ formErrors.idAnimal }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="codigoRaza">{{metadata.codigoRaza.label}}</label>
+			
+		                                        <input type="string" id="codigoRaza" class="form-control"
+required		                                               name="codigoRaza" [(ngModel)]="animalRaza.animalRazaPK.codigoRaza" >
+			
+		                                        <div *ngIf="formErrors.codigoRaza" class="alert alert-danger">
+		                                               {{ formErrors.codigoRaza }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+			
+		                                        <input type="number" id="idHacienda" class="form-control"
+required		                                               name="idHacienda" [(ngModel)]="animalRaza.animalRazaPK.idHacienda" >
+			
+		                                        <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                               {{ formErrors.idHacienda }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="porcentajeRaza">{{metadata.porcentajeRaza.label}}</label>
+                                 			<input type="number" id="porcentajeRaza" class="form-control"
+required		                                       name="porcentajeRaza" [(ngModel)]="animalRaza.porcentajeRaza" >
+		                                    <div *ngIf="formErrors.porcentajeRaza" class="alert alert-danger">
+		                                           {{ formErrors.porcentajeRaza }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

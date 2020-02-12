@@ -1,0 +1,88 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventoPotrero LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <evento-potrero-form-modal></evento-potrero-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="eventoPotreroList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idEventoPortrero.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.tipoEvento.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaEvento.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.observaciones.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idPotrero.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idHacienda.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let eventoPotrero of eventoPotreroList" (click)="onSelectedEventoPotrero(eventoPotrero)">
+	                                	<td>{{eventoPotrero.idEventoPortrero}}</td>
+	                                    <td>{{eventoPotrero.tipoEvento}}</td>
+	                                    <td>{{eventoPotrero.fechaEvento}}</td>
+	                                    <td>{{eventoPotrero.observaciones}}</td>
+	                                    <td>{{eventoPotrero.idPotrero}}</td>
+	                                    <td>{{eventoPotrero.idHacienda}}</td>
+	                                    <td>
+	                                        <evento-potrero-form-modal  [eventoPotrero]='eventoPotrero'></evento-potrero-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='eventoPotrero'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<sa-widget [hidden]='!selectedEventoPotrero' [colorbutton]="false" [editbutton]="false" [togglebutton]="false" [deletebutton]="false" [fullscreenbutton]="false">
+	<header role="heading">
+		<h2 class="hidden-xs hidden-sm">EventoPotrero Hijos</h2>
+	</header>
+	
+	<div role="content" class="tabbed-widget-content">
+		<div class="widget-body">
+			<tabset type="tabs pull-right">
+				<tab active="true">
+					<ng-template tabHeading>
+						<span class="hidden-mobile hidden-tablet">EventopotInsumo</span>
+					</ng-template>
+					<eventopot-insumo-list [eventoPotrero]="selectedEventoPotrero" ></eventopot-insumo-list>
+				</tab>
+			</tabset>
+		</div>
+	</div>
+</sa-widget>

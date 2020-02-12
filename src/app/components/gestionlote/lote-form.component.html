@@ -1,0 +1,69 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Lote FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #loteForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idLote">{{metadata.idLote.label}}</label>
+			
+		                                        <input type="number" id="idLote" class="form-control"
+required		                                               name="idLote" [(ngModel)]="lote.lotePK.idLote" >
+			
+		                                        <div *ngIf="formErrors.idLote" class="alert alert-danger">
+		                                               {{ formErrors.idLote }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+			
+		                                        <input type="number" id="idHacienda" class="form-control"
+required		                                               name="idHacienda" [(ngModel)]="lote.lotePK.idHacienda" >
+			
+		                                        <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                               {{ formErrors.idHacienda }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreLote">{{metadata.nombreLote.label}}</label>
+                                 			<input type="string" id="nombreLote" class="form-control"
+required		                                       name="nombreLote" [(ngModel)]="lote.nombreLote" >
+		                                    <div *ngIf="formErrors.nombreLote" class="alert alert-danger">
+		                                           {{ formErrors.nombreLote }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estadoLote">{{metadata.estadoLote.label}}</label>
+                                 			<input type="string" id="estadoLote" class="form-control"
+required		                                       name="estadoLote" [(ngModel)]="lote.estadoLote" >
+		                                    <div *ngIf="formErrors.estadoLote" class="alert alert-danger">
+		                                           {{ formErrors.estadoLote }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

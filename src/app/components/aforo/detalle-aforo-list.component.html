@@ -1,0 +1,75 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>DetalleAforo LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <detalle-aforo-form-modal></detalle-aforo-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="detalleAforoList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idDetalleAforo.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idPotrero.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idHacienda.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idAforo.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.valorAforo.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.submuestras.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.porcMuestra.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.tipoPasto.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let detalleAforo of detalleAforoList" (click)="onSelectedDetalleAforo(detalleAforo)">
+	                            		<td>{{detalleAforo.detalleAforoPK.idDetalleAforo}}</td>	
+	                            		<td>{{detalleAforo.detalleAforoPK.idPotrero}}</td>	
+	                            		<td>{{detalleAforo.detalleAforoPK.idHacienda}}</td>	
+	                            		<td>{{detalleAforo.detalleAforoPK.idAforo}}</td>	
+	                                	<td>{{detalleAforo.idDetalleAforo}}</td>
+	                                    <td>{{detalleAforo.valorAforo}}</td>
+	                                    <td>{{detalleAforo.submuestras}}</td>
+	                                    <td>{{detalleAforo.porcMuestra}}</td>
+	                                    <td>{{detalleAforo.tipoPasto}}</td>
+	                                    <td>
+	                                        <detalle-aforo-form-modal  [detalleAforo]='detalleAforo'></detalle-aforo-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='detalleAforo'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

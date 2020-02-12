@@ -1,0 +1,82 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Pajilla FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #pajillaForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idPajilla">{{metadata.idPajilla.label}}</label>
+	
+	                                    <input type="number" id="idPajilla" class="form-control"
+required	                                           name="idPajilla" [(ngModel)]="pajilla.idPajilla" >
+	                                    <div *ngIf="formErrors.idPajilla" class="alert alert-danger">
+	                                           {{ formErrors.idPajilla }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idHaciendaRaza">{{metadata.idHaciendaRaza.label}}</label>
+                                 			<input type="number" id="idHaciendaRaza" class="form-control"
+required		                                       name="idHaciendaRaza" [(ngModel)]="pajilla.idHaciendaRaza" >
+		                                    <div *ngIf="formErrors.idHaciendaRaza" class="alert alert-danger">
+		                                           {{ formErrors.idHaciendaRaza }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="codigoRaza">{{metadata.codigoRaza.label}}</label>
+                                 			<input type="string" id="codigoRaza" class="form-control"
+required		                                       name="codigoRaza" [(ngModel)]="pajilla.codigoRaza" >
+		                                    <div *ngIf="formErrors.codigoRaza" class="alert alert-danger">
+		                                           {{ formErrors.codigoRaza }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="numToro">{{metadata.numToro.label}}</label>
+                                 			<input type="string" id="numToro" class="form-control"
+required		                                       name="numToro" [(ngModel)]="pajilla.numToro" >
+		                                    <div *ngIf="formErrors.numToro" class="alert alert-danger">
+		                                           {{ formErrors.numToro }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombreToro">{{metadata.nombreToro.label}}</label>
+                                 			<input type="string" id="nombreToro" class="form-control"
+required		                                       name="nombreToro" [(ngModel)]="pajilla.nombreToro" >
+		                                    <div *ngIf="formErrors.nombreToro" class="alert alert-danger">
+		                                           {{ formErrors.nombreToro }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="estado">{{metadata.estado.label}}</label>
+                                 			<input type="string" id="estado" class="form-control"
+required		                                       name="estado" [(ngModel)]="pajilla.estado" >
+		                                    <div *ngIf="formErrors.estado" class="alert alert-danger">
+		                                           {{ formErrors.estado }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

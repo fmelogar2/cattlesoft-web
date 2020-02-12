@@ -1,0 +1,82 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventoPotrero FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #eventoPotreroForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="idEventoPortrero">{{metadata.idEventoPortrero.label}}</label>
+	
+	                                    <input type="number" id="idEventoPortrero" class="form-control"
+required	                                           name="idEventoPortrero" [(ngModel)]="eventoPotrero.idEventoPortrero" >
+	                                    <div *ngIf="formErrors.idEventoPortrero" class="alert alert-danger">
+	                                           {{ formErrors.idEventoPortrero }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="tipoEvento">{{metadata.tipoEvento.label}}</label>
+                                 			<input type="string" id="tipoEvento" class="form-control"
+required		                                       name="tipoEvento" [(ngModel)]="eventoPotrero.tipoEvento" >
+		                                    <div *ngIf="formErrors.tipoEvento" class="alert alert-danger">
+		                                           {{ formErrors.tipoEvento }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaEvento">{{metadata.fechaEvento.label}}</label>
+                                 			<input type="string" id="fechaEvento" class="form-control"
+required		                                       name="fechaEvento" [(ngModel)]="eventoPotrero.fechaEvento" >
+		                                    <div *ngIf="formErrors.fechaEvento" class="alert alert-danger">
+		                                           {{ formErrors.fechaEvento }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="observaciones">{{metadata.observaciones.label}}</label>
+                                 			<input type="string" id="observaciones" class="form-control"
+		                                       name="observaciones" [(ngModel)]="eventoPotrero.observaciones" >
+		                                    <div *ngIf="formErrors.observaciones" class="alert alert-danger">
+		                                           {{ formErrors.observaciones }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idPotrero">{{metadata.idPotrero.label}}</label>
+                                 			<input type="number" id="idPotrero" class="form-control"
+required		                                       name="idPotrero" [(ngModel)]="eventoPotrero.idPotrero" >
+		                                    <div *ngIf="formErrors.idPotrero" class="alert alert-danger">
+		                                           {{ formErrors.idPotrero }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idHacienda">{{metadata.idHacienda.label}}</label>
+                                 			<input type="number" id="idHacienda" class="form-control"
+required		                                       name="idHacienda" [(ngModel)]="eventoPotrero.idHacienda" >
+		                                    <div *ngIf="formErrors.idHacienda" class="alert alert-danger">
+		                                           {{ formErrors.idHacienda }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

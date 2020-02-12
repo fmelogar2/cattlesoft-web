@@ -1,0 +1,66 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Lactancia FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #lactanciaForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                            	<div class="form-group" class="col-md-6">
+	                                    <label for="numeroLactancia">{{metadata.numeroLactancia.label}}</label>
+	
+	                                    <input type="number" id="numeroLactancia" class="form-control"
+required	                                           name="numeroLactancia" [(ngModel)]="lactancia.numeroLactancia" >
+	                                    <div *ngIf="formErrors.numeroLactancia" class="alert alert-danger">
+	                                           {{ formErrors.numeroLactancia }}
+	                                    </div>
+	                            	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="idAnimal">{{metadata.idAnimal.label}}</label>
+                                 			<input type="number" id="idAnimal" class="form-control"
+required		                                       name="idAnimal" [(ngModel)]="lactancia.idAnimal" >
+		                                    <div *ngIf="formErrors.idAnimal" class="alert alert-danger">
+		                                           {{ formErrors.idAnimal }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaInicio">{{metadata.fechaInicio.label}}</label>
+                                 			<input type="string" id="fechaInicio" class="form-control"
+		                                       name="fechaInicio" [(ngModel)]="lactancia.fechaInicio" >
+		                                    <div *ngIf="formErrors.fechaInicio" class="alert alert-danger">
+		                                           {{ formErrors.fechaInicio }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaFin">{{metadata.fechaFin.label}}</label>
+                                 			<input type="string" id="fechaFin" class="form-control"
+		                                       name="fechaFin" [(ngModel)]="lactancia.fechaFin" >
+		                                    <div *ngIf="formErrors.fechaFin" class="alert alert-danger">
+		                                           {{ formErrors.fechaFin }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

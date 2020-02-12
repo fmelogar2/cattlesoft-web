@@ -1,0 +1,65 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventopotInsumo LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <eventopot-insumo-form-modal></eventopot-insumo-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="eventopotInsumoList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idInsumo.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idEventoPortrero.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.cantidad.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let eventopotInsumo of eventopotInsumoList" (click)="onSelectedEventopotInsumo(eventopotInsumo)">
+	                            		<td>{{eventopotInsumo.eventopotInsumoPK.idInsumo}}</td>	
+	                            		<td>{{eventopotInsumo.eventopotInsumoPK.idEventoPortrero}}</td>	
+	                                	<td>{{eventopotInsumo.idInsumo}}</td>
+	                                    <td>{{eventopotInsumo.cantidad}}</td>
+	                                    <td>
+	                                        <eventopot-insumo-form-modal  [eventopotInsumo]='eventopotInsumo'></eventopot-insumo-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='eventopotInsumo'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

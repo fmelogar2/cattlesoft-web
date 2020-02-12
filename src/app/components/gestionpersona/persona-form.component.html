@@ -1,0 +1,77 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>Persona FORM</h3>
+	                </div>
+	            </div>
+	            <div class="card-body">
+	               <div>
+	                   <div class="panel-body">
+	                       <div><!--<div [hidden]="submitted">-->
+	                               <form #personaForm="ngForm"  *ngIf="active"><!-- (ngSubmit)="onSubmit()"-->
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="tipoDocumento">{{metadata.tipoDocumento.label}}</label>
+			
+		                                        <input type="string" id="tipoDocumento" class="form-control"
+required		                                               name="tipoDocumento" [(ngModel)]="persona.personaPK.tipoDocumento" >
+			
+		                                        <div *ngIf="formErrors.tipoDocumento" class="alert alert-danger">
+		                                               {{ formErrors.tipoDocumento }}
+		                                        </div>
+	                                    	</div>
+	                                		<div class="form-group" class="col-md-6">
+		                                        <label for="numDocumento">{{metadata.numDocumento.label}}</label>
+			
+		                                        <input type="string" id="numDocumento" class="form-control"
+required		                                               name="numDocumento" [(ngModel)]="persona.personaPK.numDocumento" >
+			
+		                                        <div *ngIf="formErrors.numDocumento" class="alert alert-danger">
+		                                               {{ formErrors.numDocumento }}
+		                                        </div>
+	                                    	</div>
+	                                	
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="nombres">{{metadata.nombres.label}}</label>
+                                 			<input type="string" id="nombres" class="form-control"
+required		                                       name="nombres" [(ngModel)]="persona.nombres" >
+		                                    <div *ngIf="formErrors.nombres" class="alert alert-danger">
+		                                           {{ formErrors.nombres }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="apellidos">{{metadata.apellidos.label}}</label>
+                                 			<input type="string" id="apellidos" class="form-control"
+		                                       name="apellidos" [(ngModel)]="persona.apellidos" >
+		                                    <div *ngIf="formErrors.apellidos" class="alert alert-danger">
+		                                           {{ formErrors.apellidos }}
+		                                    </div>
+	                                	</div>
+	                             		<div class="form-group" class="col-md-6">
+		                                    <label for="fechaNacimiento">{{metadata.fechaNacimiento.label}}</label>
+                                 			<input type="string" id="fechaNacimiento" class="form-control"
+		                                       name="fechaNacimiento" [(ngModel)]="persona.fechaNacimiento" >
+		                                    <div *ngIf="formErrors.fechaNacimiento" class="alert alert-danger">
+		                                           {{ formErrors.fechaNacimiento }}
+		                                    </div>
+	                                	</div>
+	                            
+	                            
+	                                
+	                                <div class="col-md-12">
+	                                    <br>
+	                                    
+	                                     <confirmation-modal [msg]='modalMessage' (resp)="getConfirmationResponse($event);"></confirmation-modal>
+	                                    <br>
+	                                </div>
+	                            </form>
+	                       </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

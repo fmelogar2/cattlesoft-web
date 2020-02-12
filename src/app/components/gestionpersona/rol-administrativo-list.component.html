@@ -1,0 +1,71 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>RolAdministrativo LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <rol-administrativo-form-modal></rol-administrativo-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="rolAdministrativoList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.tipoDocumento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.numDocumento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idHacienda.label }}</th>
+	                                	<th data-class="expand">{{ metadata.idRol.label }}</th>
+	                                	<th data-class="expand">{{ metadata.fechaInicioRol.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaFinRol.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let rolAdministrativo of rolAdministrativoList" (click)="onSelectedRolAdministrativo(rolAdministrativo)">
+	                            		<td>{{rolAdministrativo.rolAdministrativoPK.tipoDocumento}}</td>	
+	                            		<td>{{rolAdministrativo.rolAdministrativoPK.numDocumento}}</td>	
+	                            		<td>{{rolAdministrativo.rolAdministrativoPK.idHacienda}}</td>	
+	                            		<td>{{rolAdministrativo.rolAdministrativoPK.idRol}}</td>	
+	                            		<td>{{rolAdministrativo.rolAdministrativoPK.fechaInicioRol}}</td>	
+	                                	<td>{{rolAdministrativo.tipoDocumento}}</td>
+	                                    <td>{{rolAdministrativo.fechaFinRol}}</td>
+	                                    <td>
+	                                        <rol-administrativo-form-modal  [rolAdministrativo]='rolAdministrativo'></rol-administrativo-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='rolAdministrativo'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+

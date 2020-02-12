@@ -1,0 +1,85 @@
+<div id="content">
+	<div class="row">
+	    <div class="col-xs-12">
+	        <div class="card">
+	            <div class="card-header">
+	                <div class="card-title">
+	                    <h3>EventoCelo LIST {{salidaTest}}</h3>
+	                </div>
+	            </div>
+	            <div class="card-header">
+	                <div>
+	                    <evento-celo-form-modal></evento-celo-form-modal>
+	                </div>
+	            </div>
+	            <div *ngIf="openGenericSearch">
+	                <generic-search
+	                    [fieldList]='fieldList'
+	                    (queryParamList)="onSearchEdit($event)">
+	                </generic-search>
+	            </div>
+	            <div class="card-body">
+	                <div class="col-xs-12 col-md-12">
+	                    <div class="panel-body">
+	                        <sa-datatable *ngIf="eventoCeloList" paginationLength="true" tableClass="table table-striped table-bordered table-hover" 
+								[options]="{
+									columnDefs: [
+										{ responsivePriority: 1, targets: 0 },
+										{ responsivePriority: 2, targets: -1 }
+									]}" width="100%">
+	                            <thead>
+	                                <tr>
+	                                	<th data-class="expand">{{ metadata.idAnimal.label }}</th>
+	                                	<th data-class="expand">{{ metadata.fechaEvento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.tipoEvento.label }}</th>
+	                                	<th data-class="expand">{{ metadata.tipoServicio.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.codToro.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.nombreToro.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.observaciones.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.tipoServicioDonacion.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idAnimalDonador.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.fechaEventoDonacion.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.tipoEventoDonacion.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idPajilla.label }}</th>
+	                                	<th data-hide="phone,tablet">{{ metadata.idAnimalMontaDirecta.label }}</th>
+	                                    <th data-hide="phone,tablet">Acciones</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr *ngFor="let eventoCelo of eventoCeloList" (click)="onSelectedEventoCelo(eventoCelo)">
+	                            		<td>{{eventoCelo.eventoCeloPK.idAnimal}}</td>	
+	                            		<td>{{eventoCelo.eventoCeloPK.fechaEvento}}</td>	
+	                            		<td>{{eventoCelo.eventoCeloPK.tipoEvento}}</td>	
+	                            		<td>{{eventoCelo.eventoCeloPK.tipoServicio}}</td>	
+	                                	<td>{{eventoCelo.idAnimal}}</td>
+	                                    <td>{{eventoCelo.codToro}}</td>
+	                                    <td>{{eventoCelo.nombreToro}}</td>
+	                                    <td>{{eventoCelo.observaciones}}</td>
+	                                    <td>{{eventoCelo.tipoServicioDonacion}}</td>
+	                                    <td>{{eventoCelo.idAnimalDonador}}</td>
+	                                    <td>{{eventoCelo.fechaEventoDonacion}}</td>
+	                                    <td>{{eventoCelo.tipoEventoDonacion}}</td>
+	                                    <td>{{eventoCelo.idPajilla}}</td>
+	                                    <td>{{eventoCelo.idAnimalMontaDirecta}}</td>
+	                                    <td>
+	                                        <evento-celo-form-modal  [eventoCelo]='eventoCelo'></evento-celo-form-modal>
+
+	                                        <confirmation-modal *ngIf='modalDeleteMessage' 
+	                                                            [msg]='modalDeleteMessage' 
+	                                                            [data]='eventoCelo'
+	                                                            (resp)="getConfirmationResponse($event);">
+	                                        </confirmation-modal>
+										</td> 
+	                                </tr>
+	                            </tbody>
+	                        </sa-datatable>
+	                        
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
